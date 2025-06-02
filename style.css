@@ -1,44 +1,19 @@
 
-
 body {
-  font-family: 'Segoe UI', sans-serif;
-  background: linear-gradient(to right, #e0f7fa, #e1bee7);
-  color: #333;
-  margin: 0;
-  padding: 0;
-}
-.container {
-  max-width: 700px;
-  margin: auto;
-  padding: 20px;
-  background: white;
-  border-radius: 15px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.1);
+  font-family: Arial, sans-serif;
+  background-color: #f0f8ff;
   text-align: center;
+  padding: 20px;
 }
-.titulo {
-  color: #6a1b9a;
+#game {
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 20px;
+  max-width: 600px;
+  margin: 0 auto;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
 button {
   padding: 10px 20px;
-  background-color: #7e57c2;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-button:hover {
-  background-color: #5e35b1;
-}
-input {
-  padding: 10px;
-  margin-bottom: 10px;
-  width: 80%;
-}
-a {
-  color: #6a1b9a;
-  text-decoration: none;
-}
-a:hover {
-  text-decoration: underline;
+  font-size: 16px;
 }
