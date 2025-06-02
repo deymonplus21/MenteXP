@@ -1,4 +1,4 @@
-const questions = [
+main_js = """const questions = [
   { category: "Matemática", q: "¿Cuál es la raíz cuadrada de 64?", a: ["8", "6", "7"], c: "8" },
   { category: "Comunicación", q: "¿Cuál es el sujeto en 'María canta una canción'?", a: ["María", "canta", "una canción"], c: "María" },
   { category: "Ciencia", q: "¿Qué gas necesitamos para respirar?", a: ["Oxígeno", "Nitrógeno", "Hidrógeno"], c: "Oxígeno" },
@@ -7,6 +7,8 @@ const questions = [
   { category: "Arte", q: "¿Qué instrumento tiene cuerdas?", a: ["Violín", "Flauta", "Trompeta"], c: "Violín" },
   { category: "Educación Física", q: "¿Qué ejercicio ayuda a mejorar la resistencia?", a: ["Trotar", "Dormir", "Comer"], c: "Trotar" },
   { category: "Sociales", q: "¿En qué continente está Perú?", a: ["América", "Asia", "Europa"], c: "América" },
+  { category: "Matemática", q: "¿Cuánto es 9 x 6?", a: ["54", "63", "45"], c: "54" },
+  { category: "Comunicación", q: "¿Qué tipo de palabra es 'rápidamente'?", a: ["Adverbio", "Verbo", "Sustantivo"], c: "Adverbio" }
 ];
 
 let timer = 60;
@@ -17,19 +19,19 @@ let interval;
 function startGame() {
   const name = document.getElementById("username").value.trim();
   if (!name) return alert("Escribe tu nombre");
-  document.getElementById("questionContainer").style.display = "block";
-  document.getElementById("scoreBoard").style.display = "none";
-  document.querySelector("username").style.display = "none";
+  document.getElementById("gameArea").style.display = "block";
+  document.getElementById("username").style.display = "none";
+  document.querySelector("button").style.display = "none";
   loadMusic();
   nextQuestion();
   interval = setInterval(() => {
     timer--;
-    document.getElementById("timer").innerText = "Tiempo restante: " + timer ;
+    document.getElementById("timer").innerText = "Tiempo: " + timer + "s";
     if (timer <= 0) endGame(name);
   }, 1000);
 }
 
- nextQuestion() {
+function nextQuestion() {
   const pool = questions.filter(q => !asked.includes(q.q));
   if (pool.length === 0) return endGame(document.getElementById("username").value.trim());
   const q = pool[Math.floor(Math.random() * pool.length)];
@@ -48,7 +50,7 @@ function startGame() {
   });
 }
 
-endGame(name) {
+function endGame(name) {
   clearInterval(interval);
   document.getElementById("gameArea").style.display = "none";
   document.getElementById("endScreen").style.display = "block";
@@ -58,3 +60,11 @@ endGame(name) {
   list.sort((a, b) => b.score - a.score);
   localStorage.setItem("scores", JSON.stringify(list.slice(0, 10)));
 }
+
+function loadMusic() {
+  const tracks = ["assets/music1.mp3", "assets/music2.mp3", "assets/music3.mp3"];
+  const music = document.getElementById("music");
+  music.src = tracks[Math.floor(Math.random() * tracks.length)];
+  music.play();
+}
+"""
