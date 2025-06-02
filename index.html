@@ -1,0 +1,28 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MenteXP</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="game">
+    <h1>MenteXP</h1>
+    <input type="text" id="username" placeholder="Escribe tu nombre" />
+    <button onclick="startGame()">Iniciar</button>
+    <div id="questionContainer" style="display:none;">
+      <p id="question"></p>
+      <div id="answers"></div>
+    </div>
+    <p id="timer"></p>
+    <div id="scoreBoard" style="display:none;">
+      <h2>Tabla de Ganadores</h2>
+      <ul id="scoreList"></ul>
+    </div>
+  </div>
+  <audio id="music" autoplay loop></audio>
+  <script src="main.js"></script>
+</body>
+</html>
